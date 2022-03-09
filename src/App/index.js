@@ -23,7 +23,7 @@ function App() {
 
 function Navigation() {
   return (
-    <Nav>
+    <Nav> 
       <NavItem to="/" title="Home">
         Home
       </NavItem>

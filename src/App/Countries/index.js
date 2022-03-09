@@ -46,6 +46,7 @@ function Countries() {
 
         <ToolbarFilters margin={[8]}>
           <Input
+            data-testid="search-by-country-name"
             type="text"
             placeholder="Filter by country name"
             onChange={(e) => {
@@ -59,6 +60,7 @@ function Countries() {
           {Boolean(selected.length) && (
             <label>
               <Select
+                data-testid="country-actions"
                 data-test="actions"
                 name="Mark as"
                 value={marked}
@@ -155,14 +157,16 @@ function Countries() {
           <TBody>
             {countries.filter(byKeyword).map((country) => (
               <Tr
+                data-testid ="country-row"
                 key={country.code}
                 onClick={() =>
                   history.push(`/countries/${country.code.toLowerCase()}`)
                 }
               >
                 <Td onClick={(e) => e.stopPropagation()}>
-                  <Input
+                  <Input                    
                     data-test="input-country"
+                    data-testid="select-country-row-checkbox"
                     type="checkbox"
                     name={`${country.name} selector`}
                     checked={selected.includes(country.code)}
@@ -177,16 +181,17 @@ function Countries() {
                     }}
                   />
                 </Td>
-                <Td>{country.emoji}</Td>
-                <Td>{country.code}</Td>
-                <Td>{country.name}</Td>
-                <Td>{country.continent.name}</Td>
-                <Td>{country.capital}</Td>
-                <Td>{country.currency?.split(",")[0]}</Td>
-                <Td>{country.languages.map((l) => l.name)[0]}</Td>
+                <Td data-testid ="country-flag">{country.emoji}</Td>
+                <Td data-testid ="country-code">{country.code}</Td>
+                <Td data-testid ="country-name">{country.name}</Td>
+                <Td data-testid ="country-continent">{country.continent.name}</Td>
+                <Td data-testid ="country-capital">{country.capital}</Td>
+                <Td data-testid ="country-currency">{country.currency?.split(",")[0]}</Td>
+                <Td data-testid ="country-language">{country.languages.map((l) => l.name)[0]}</Td>
                 <Td align="center" onClick={(e) => e.stopPropagation()}>
                   <label data-test="input-visited">
                     <VisitedInput
+                      data-testid ="visited-checkbox"                   
                       type="checkbox"
                       name="visited"
                       checked={visited.includes(country.code)}
@@ -205,6 +210,7 @@ function Countries() {
                 <Td align="center" onClick={(e) => e.stopPropagation()}>
                   <label data-test="input-wanted">
                     <WantedInput
+                      data-testid ="want-to-go-checkbox"
                       type="checkbox"
                       name="wanted"
                       checked={wanted.includes(country.code)}
