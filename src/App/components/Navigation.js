@@ -12,6 +12,7 @@ function NavItem({ to, title, children }) {
 
   return (
     <NavButtonItem
+      data-testid={`nav-${title.toLowerCase()}`}
       as={Link}
       title={title}
       to={to}

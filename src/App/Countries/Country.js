@@ -41,16 +41,16 @@ function Country() {
 
         {country && (
           <Box horziontal>
-            <CountryInfo vertical>
+            <CountryInfo  vertical>
               <CountryMeta title="Name">{country.name}</CountryMeta>
               <CountryMeta title="Code">{country.code}</CountryMeta>
               <CountryMeta title="Capital">{country.capital}</CountryMeta>
               <CountryMeta title="Continent">
                 {country.continent?.name}
               </CountryMeta>
-              <CountryMeta title="Currency">{country.currency}</CountryMeta>
+              <CountryMeta title="Currency">{country.currency}`</CountryMeta>
               {Boolean(country?.languages?.length) && (
-                <CountryMeta title="Language">
+                <CountryMeta data-testid ="country-language" title="Language">
                   {country.languages[0].name}
                 </CountryMeta>
               )}
